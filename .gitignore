@@ -28,5 +28,26 @@
 
 # Executables
 *.exe
+
+# Ignore Visual Studio temporary files, build results, and other generated files.
+.vs/
+*.suo
+*.user
+*.log
+*.ipch
+*.ilk
+*.pdb
+*.exe
+*.tlog
+*.obj
+*.idb
+*.recipe
+*.vcxproj.FileListAbsolute.txt
+*.lastbuildstate
+*.opensdf
+*.VC.db*
+*.db-shm
+*.db-wal
+*.opendb
 *.out
 *.app
