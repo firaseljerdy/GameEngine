@@ -1,10 +1,12 @@
 #include <OGL3D/Game/OGame.h>
 #include <OGL3D/Window/OWindow.h>
+#include <OGL3D/GraphicsEngine/GraphicsEngine.h>
 #include <Windows.h>
 
 OGame::OGame()
 {
 	m_display = std::make_unique<OWindow>();
+	m_graphicsEngine = std::make_unique<GraphicsEngine>();
 }
 
 OGame::~OGame()
