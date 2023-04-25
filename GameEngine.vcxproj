@@ -142,6 +142,8 @@
     <ClInclude Include="GameEngine\include\OGL3D\Window\OWindow.h" />
     <ClInclude Include="GameEngine\include\OGL3D\Game\OGame.h" />
     <ClInclude Include="GameEngine\include\OGL3D\GraphicsEngine\GraphicsEngine.h" />
+    <ClInclude Include="GameEngine\include\OGL3D\Math\OVec4.h" />
+    <ClInclude Include="GameEngine\include\OGL3D\OPrerequisites.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

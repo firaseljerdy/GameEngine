@@ -44,5 +44,11 @@
     <ClInclude Include="GameEngine\include\OGL3D\GraphicsEngine\GraphicsEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngine\include\OGL3D\Math\OVec4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngine\include\OGL3D\OPrerequisites.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -8,6 +8,12 @@ class OGame
 public:
 	OGame();
 	~OGame();
+
+	virtual void onCreate();
+	virtual void onUpdate();
+	virtual void onQuit();
+
+
 	void run();
 	void quit();
 protected:

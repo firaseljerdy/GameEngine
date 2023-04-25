@@ -7,6 +7,9 @@ OGame::OGame()
 {
 	m_display = std::make_unique<OWindow>();
 	m_graphicsEngine = std::make_unique<GraphicsEngine>();
+
+	// set opengl to our display on init
+	m_display->makeCurrentContext();
 }
 
 OGame::~OGame()
@@ -14,8 +17,24 @@ OGame::~OGame()
 	
 }
 
+void OGame::onCreate()
+{
+	m_graphicsEngine->clear(OVec4(1, 0, 0, 1));
+
+	m_display->present(false);
+}
+
+void OGame::onUpdate()
+{
+}
+
+void OGame::onQuit()
+{
+}
+
 void OGame::run()
 {
+	onCreate();
 	
 	while (m_isRunning)
 	{
@@ -35,8 +54,10 @@ void OGame::run()
 			
 		}
 
-		Sleep(1.0F);
+		onUpdate();
 	}
+
+	onQuit();
 }
 
 void OGame::quit()
