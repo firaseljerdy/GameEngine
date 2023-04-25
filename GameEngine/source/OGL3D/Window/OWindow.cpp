@@ -10,7 +10,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_DESTROY:
 	{
 		OWindow* window = (OWindow *)GetWindowLongPtr(hwnd, GWLP_USERDATA);
-		window->onDestroy();
+	
+		break;
+	}
+	case WM_CLOSE:
+	{
+		PostQuitMessage(0);
 		break;
 	}
 	default:
@@ -27,11 +32,13 @@ OWindow::OWindow()
 	windowClass.lpfnWndProc = &WndProc;
 
 	// Let OS know about class and register it by passing address of the var
-	assert(RegisterClassEx(&windowClass));
+	auto classID = RegisterClassEx(&windowClass);
+	assert(classID);
+
 	RECT rect = { 0, 0, 1024, 768 };
 	AdjustWindowRect(&rect, WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, false);
 
-	 m_Handle = CreateWindowEx(NULL, L"OpenGLWindow", L"GameEngine", 
+	 m_Handle = CreateWindowEx(NULL, MAKEINTATOM(classID), L"GameEngine",
 		WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT, 
 		rect.right - rect.left, rect.bottom - rect.top, NULL, NULL, NULL, NULL);
 
@@ -48,13 +55,3 @@ OWindow::~OWindow()
 	DestroyWindow((HWND)m_Handle);
 }
 
-void OWindow::onDestroy()
-{
-	m_Handle = nullptr;
-}
-
-bool OWindow::isClosed()
-{
-	// if the handle is null the window is closed
-	return !m_Handle;
-}
